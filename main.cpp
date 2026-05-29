@@ -1,54 +1,52 @@
-#include "notepad.h"
-#include <iostream>
-#include <string>
-
-using namespace std;
+#include "student.h"
 
 int main() {
-    int choice;
-    string filename;
 
-   
+    int choice;
+
     do {
-        
-        cout << "SIMPLE NOTEPAD" << endl;
-        cout << "1. Write File" << endl;
-        cout << "2. Read File" << endl;
-        cout << "3. Append File" << endl;
-        cout << "4. Exit" << endl;
-        cout << "Enter choice: ";
+        cout << "\n===== STUDENT MANAGEMENT SYSTEM =====\n";
+        cout << "1. Add Student\n";
+        cout << "2. Display Students\n";
+        cout << "3. Search Student\n";
+        cout << "4. Update Student\n";
+        cout << "5. Delete Student\n";
+        cout << "6. Exit\n";
+
+        cout << "Enter Your Choice: ";
         cin >> choice;
 
-        
-        switch (choice) {
+        switch(choice) {
+
             case 1:
-                cout << "Enter filename to create: ";
-                cin >> filename;
-                writeFile(filename); 
+                addStudent();
                 break;
 
             case 2:
-                cout << "Enter filename to read: ";
-                cin >> filename;
-                readFile(filename); 
+                displayStudents();
                 break;
 
             case 3:
-                cout << "Enter filename to append to: ";
-                cin >> filename;
-                appendFile(filename); 
+                searchStudent();
                 break;
 
             case 4:
-                cout << "Exiting program. Goodbye!" << endl;
+                updateStudent();
+                break;
+
+            case 5:
+                deleteStudent();
+                break;
+
+            case 6:
+                cout << "Program Ended.\n";
                 break;
 
             default:
-                
-                cout << "Invalid choice! Please try again.\n" << endl;
-                break;
+                cout << "Invalid Choice.\n";
         }
-    } while (choice != 4); 
+
+    } while(choice != 6);
 
     return 0;
 }
